@@ -1,0 +1,86 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.news {
+  padding-block: to-rem(80);
+
+  &__title {
+    margin: 0;
+    margin-bottom: to-rem(32);
+    font-weight: 700;
+    font-size: fluid(48, 36);
+    line-height: 1.2;
+  }
+
+  &__list {
+    @include grid(3, 20);
+
+    @include respond-to("tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to("mobile") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &-card {
+    position: relative;
+    @include flex(column, null, stretch);
+    height: 100%;
+    min-height: to-rem(478);
+    background: $light-grey-color;
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: to-rem(251);
+      object-fit: cover;
+    }
+
+    &__inner {
+      @include flex(column, null, stretch);
+      flex-grow: 1;
+      padding: to-rem(16) to-rem(16) to-rem(24);
+    }
+
+    &__title {
+      margin: 0;
+      margin-bottom: to-rem(20);
+      font-weight: 400;
+      font-size: to-rem(20);
+      line-height: 1.4;
+      text-align: left;
+      color: $dark-color;
+    }
+
+    &__bottom {
+      @include flex(row, space-between, center, 16);
+      width: 100%;
+      margin-top: auto;
+    }
+
+    &__link {
+      font-size: to-rem(16);
+      line-height: 1.2;
+      color: $accent-color;
+      text-decoration: none;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__date {
+      font-size: to-rem(16);
+      line-height: 1.4;
+      color: $grey-color;
+    }
+  }
+}

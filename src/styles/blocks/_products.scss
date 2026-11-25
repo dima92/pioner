@@ -1,0 +1,68 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.products {
+  padding-top: to-rem(80);
+
+  &__title {
+    margin: 0;
+    margin-bottom: to-rem(32);
+    font-weight: 700;
+    font-size: fluid(48, 36);
+    line-height: 1.2;
+  }
+
+  &__list {
+    @include respond-to("tablet-sm") {
+      row-gap: to-rem(20);
+    }
+  }
+
+  &__item {
+    grid-column: 4 span;
+  }
+
+  &__card {
+    position: relative;
+    @include flex(column, null, flex-start);
+    padding: to-rem(32) to-rem(24);
+    height: 100%;
+    min-height: to-rem(435);
+    background: $light-grey-color;
+
+    @include respond-to("tablet") {
+      min-height: to-rem(360);
+    }
+
+    &-image {
+      max-height: to-rem(200);
+    }
+
+    &-title {
+      overflow: hidden;
+      margin: auto 0 to-rem(12);
+      font-weight: 600;
+      font-size: fluid(28, 24);
+      line-height: 1.2;
+    }
+
+    &-link {
+      @include flex(row, null, center, 8, true);
+      font-size: to-rem(20);
+      line-height: 1.2;
+      color: $accent-color;
+
+      svg {
+        width: to-rem(6);
+        height: to-rem(11);
+        fill: currentColor;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+}

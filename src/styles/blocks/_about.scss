@@ -1,0 +1,34 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.about {
+  padding-top: to-rem(80);
+
+  &__title {
+    margin: 0;
+    margin-bottom: to-rem(32);
+    font-weight: 700;
+    font-size: fluid(48, 36);
+    line-height: 1.2;
+  }
+
+  &__text {
+    margin-bottom: to-rem(32);
+    column-gap: to-rem(20);
+    row-gap: fluid(24, 16);
+  }
+
+  &__descr {
+    grid-column: 6 span;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  &__image {
+    grid-column: 6 span;
+
+    @include respond-to("tablet-sm") {
+      grid-column: 4 span;
+    }
+  }
+}

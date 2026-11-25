@@ -1,0 +1,58 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.present {
+  padding-top: to-rem(80);
+
+  @include respond-to("tablet") {
+    display: none;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: to-rem(32);
+    font-weight: 700;
+    font-size: fluid(48, 36);
+    line-height: 1.2;
+  }
+
+  &__map {
+    width: calc(100% - to-rem(29));
+
+    svg {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    path {
+      fill: $third-color;
+      transition: fill $transition-duration;
+    }
+  }
+
+  &__text {
+    fill: $dark-color !important;
+  }
+
+  &__link {
+    position: relative;
+
+    &::before {
+      content: "sdfsdf ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      font-size: to-rem(12);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    @include hover {
+      path {
+        fill: $light-grey-color;
+      }
+    }
+  }
+}

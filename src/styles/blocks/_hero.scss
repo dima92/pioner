@@ -1,0 +1,47 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.hero {
+  padding-top: to-rem(80);
+
+  &__top {
+    margin-bottom: to-rem(32);
+  }
+
+  &__title {
+    grid-column: 6 span;
+    margin: 0;
+    font-weight: 700;
+    font-size: fluid(60, 40);
+    line-height: 1.2;
+
+    @include respond-to("tablet-sm") {
+      grid-column: 4 span;
+    }
+  }
+
+  &__descr {
+    grid-column: 4 span;
+    margin: 0;
+    padding-top: to-rem(24);
+    line-height: 1.2;
+
+    @include respond-to("tablet") {
+      grid-column: 6 span;
+      padding-top: to-rem(16);
+    }
+
+    @include respond-to("tablet-sm") {
+      grid-column: 4 span;
+    }
+  }
+}
+
+.grid {
+  @include grid(12, 20);
+
+  @include respond-to("tablet-sm") {
+    @include grid(4, 20);
+    row-gap: 0;
+  }
+}
